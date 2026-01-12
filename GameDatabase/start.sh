@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # Minimal startup script for the GameDatabase MongoDB container.
-# Ensures required directories exist and starts mongod on the configured port.
 #
-# Important: this script is written to be *idempotent*.
-# If mongod is already running and bound to the target port, we exit 0.
+# - Ensures required directories exist
+# - Starts mongod on the configured port
+# - Idempotent: exits 0 if MongoDB is already running (PID file or port already in use)
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
